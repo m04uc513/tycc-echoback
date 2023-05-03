@@ -1,0 +1,41 @@
+var botui = new BotUI('echoback');
+
+async function main() {
+  //botui.message.bot('取り敢えずメッセージを出すだけ');
+  while (true) {
+    /*
+    botui.message.bot('メッセージ１');
+    botui.message.bot('メッセージ２');
+    botui.message.bot('メッセージ３');
+    var prompt = {
+      action: [
+        { text: 'One',   value: 'one' },
+        { text: 'Two',   value: 'two' },
+        { text: 'Three', value: 'three' }
+      ]
+    };
+    var result = await botui.action.button(prompt);
+    */
+    var result = await botui.action.text({
+      delay: 1000,
+      action: {
+        placeholder: '入力してください'
+      }
+    });
+    console.log(result.value);
+    botui.message.bot(result.value);
+  }
+}
+
+main();
+
+/*
+botui.message.add({
+  content: 'Hello World from bot!'
+});
+
+botui.message.add({
+  human: true,
+  content: 'Hello World from human!'
+});
+*/
